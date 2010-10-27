@@ -8,16 +8,28 @@
     using System.Web.Security;
 
     using Infrastructure.Authentication;
+    using Infrastructure.Reporting;
 
     public class SessionController : Controller
     {
         private readonly IAuthenticationService authService;
+        private readonly IReporting reporting;
 
-        public SessionController(IAuthenticationService authService)
+        private readonly UserActivityLogger userActivityLogger;
+
+        public SessionController(
+            IAuthenticationService authService,
+            IReporting reporting)
         {
             this.authService = authService;
+            this.reporting = reporting;
+
+            this.userActivityLogger = new UserActivityLogger(reporting);
         }
 
+        //
+        // GET: /Session/Create
+        // Kind of like "login"
         public ActionResult Create()
         {
             return this.View();
@@ -34,12 +46,24 @@
             {
                 if (this.authService.IsValidLogin(login, password))
                 {
+                    this.userActivityLogger.LogIt(login, "Logged in");
                     FormsAuthentication.SetAuthCookie(login, true);
                     return this.Redirect("/");
                 }
             }
 
             return this.View();
+        }
+
+        // Logout
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete()
+        {
+            this.userActivityLogger.LogIt(User.Identity.Name, "Logged out");
+            FormsAuthentication.SignOut();
+            return RedirectToAction("index", "home");
         }
     }
 }

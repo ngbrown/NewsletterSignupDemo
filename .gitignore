@@ -13,6 +13,7 @@ _ReSharper.*/
 *.ReSharper
 *.user
 Logs/
+RavenServer/Data/
 
 # switch to regexp syntax.
 syntax: regexp

@@ -9,6 +9,7 @@ namespace Tasks
     {
         static void Main(string[] args)
         {
+            new HelloRaven().Run(args);
         }
     }
 }
