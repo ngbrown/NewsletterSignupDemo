@@ -8,6 +8,8 @@
     using System.Web.Routing;
     using System.Reflection;
 
+    using Infrastructure.Authentication;
+
     using Ninject;
     using Ninject.Extensions.Logging;
     using Ninject.Modules;
@@ -53,6 +55,7 @@
         {
             public override void Load()
             {
+                this.Bind<IAuthenticationService>().To<DefaultLoginAuthenticationService>();
             }
         }
     }

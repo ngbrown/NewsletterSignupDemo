@@ -80,15 +80,17 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\FlashHelpers.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\XSSHelper.cs" />
-    <Compile Include="Model\AccountModels.cs" />
+    <Compile Include="Infrastructure\Authentication\AspMembershipAuthenticationService.cs" />
+    <Compile Include="Infrastructure\Authentication\DefaultLoginAuthenticationService.cs" />
+    <Compile Include="Infrastructure\Authentication\IAuthenticationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,10 +137,6 @@
     <Content Include="Public\javascript\MicrosoftMvcAjax.debug.js" />
     <Content Include="Public\javascript\MicrosoftMvcValidation.js" />
     <Content Include="Public\javascript\MicrosoftMvcValidation.debug.js" />
-    <Content Include="Views\Account\ChangePassword.aspx" />
-    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Views\Account\LogOn.aspx" />
-    <Content Include="Views\Account\Register.aspx" />
     <Content Include="Views\Home\About.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Shared\Error.aspx" />
@@ -149,8 +147,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="CodeTemplates\" />
-    <Folder Include="Infrastructure\" />
     <Folder Include="Logs\" />
+    <Folder Include="Model\" />
     <Folder Include="Public\images\" />
     <Folder Include="Reporting\" />
   </ItemGroup>
