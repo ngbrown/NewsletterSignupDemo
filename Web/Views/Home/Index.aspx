@@ -9,4 +9,9 @@
     <p>
         To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
     </p>
+    <p>
+        <button type="submit" class="button positive">
+            <img src="/Public/css/blueprint/plugins/buttons/icons/tick.png" alt=""/> Save
+        </button>
+    </p>
 </asp:Content>

@@ -4,37 +4,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+
+    <%= Html.CSS("blueprint/screen") %>
+    <%= Html.CSS("blueprint/plugins/buttons/screen") %>
+    <%= Html.CSS("blueprint/print", "print") %>
+    <!--[if lt IE 8]><link rel="stylesheet" href="/Public/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
+
+    <%= Html.CSS("site") %>
+
+    <%= Html.Script("jquery-1.4.1.min") %>
 </head>
 
 <body>
-    <div class="page">
-
         <div id="header">
-            <div id="title">
-                <h1>My MVC Application</h1>
-            </div>
+            <div class="container">
+                <div class="column span-12">
+                    <h1>My MVC Application</h1>
+                </div>
               
-            <div id="logindisplay">
-                <% Html.RenderPartial("LogOnUserControl"); %>
-            </div> 
+                <div class="column span-12 last">
+                    <span class="right">
+                        <% Html.RenderPartial("LogOnUserControl"); %>
+                    </span>
+                </div> 
+            </div>
+            <div class="container">
+                <div id="menucontainer">
             
-            <div id="menucontainer">
+                    <ul id="menu">              
+                        <li><%= Html.ActionLink("Home", "Index", "Home")%></li>
+                        <li><%= Html.ActionLink("About", "About", "Home")%></li>
+                    </ul>
             
-                <ul id="menu">              
-                    <li><%= Html.ActionLink("Home", "Index", "Home")%></li>
-                    <li><%= Html.ActionLink("About", "About", "Home")%></li>
-                </ul>
-            
+                </div>
             </div>
         </div>
 
         <div id="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            <div class="container">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 
-            <div id="footer">
+                <div id="footer">
+                </div>
             </div>
         </div>
-    </div>
 </body>
 </html>
