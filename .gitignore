@@ -1,0 +1,18 @@
+# use glob syntax.
+syntax: glob
+
+*resharper.user
+[Dd]ebug/
+[Rr]elease/
+build/
+[Bb]in/
+[Oo]bj/
+*.suo
+*.sln.cache
+_ReSharper.*/
+*.ReSharper
+*.user
+Logs/
+
+# switch to regexp syntax.
+syntax: regexp
