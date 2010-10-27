@@ -24,7 +24,7 @@
             this.authService = authService;
             this.reporting = reporting;
 
-            this.userActivityLogger = new UserActivityLogger(reporting);
+            this.userActivityLogger = new UserActivityLogger(this.reporting);
         }
 
         //
@@ -42,14 +42,16 @@
             var login = collection["username"];
             var password = collection["password"];
             if (string.IsNullOrEmpty(login) == false &&
-                string.IsNullOrEmpty(password) == false)
+                string.IsNullOrEmpty(password) == false &&
+                this.authService.IsValidLogin(login, password))
             {
-                if (this.authService.IsValidLogin(login, password))
-                {
-                    this.userActivityLogger.LogIt(login, "Logged in");
-                    FormsAuthentication.SetAuthCookie(login, true);
-                    return this.Redirect("/");
-                }
+                this.userActivityLogger.LogIt(login, "Logged in");
+                FormsAuthentication.SetAuthCookie(login, true);
+                return this.Redirect("/");
+            }
+            else
+            {
+                this.FlashWarning("Invalid Login");
             }
 
             return this.View();

@@ -18,5 +18,5 @@ SQL Express is required to be installed to support the reporting of user activit
 
 The web application can be launched through Visual Studio's embedded web server (Ctl-F5) or if IIS Express is installed, use the included "LaunchIISExpress.cmd".
 
-The user name is "Admin" and the password is "admin".  Asp Membership authentication is already implemented, to use it, the main SiteModule IoC config class needs adjusted and users would have to be added to the Asp user list.
+To view the current subscriptions to the newsletter, a login is required.  The user name is "Admin" and the password is "password".  This is currently implemented through Asp Membership authentication IIS provider.  It can be swapped out for any future authentication scheme.
 

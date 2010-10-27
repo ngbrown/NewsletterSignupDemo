@@ -65,7 +65,7 @@
             public override void Load()
             {
                 this.Bind<IAuthenticationService>()
-                    .To<DefaultLoginAuthenticationService>();
+                    .To<AspMembershipAuthenticationService>();
 
                 this.Bind<IDataStorage>()
                     .ToConstant(new RavenDataStorage("http://localhost:8080"))

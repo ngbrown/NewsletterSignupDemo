@@ -14,8 +14,9 @@
 
     <%= Html.Script("jquery-1.4.1.min") %>
 </head>
-
+<%=Html.Flash() %>
 <body>
+    <div id="flash" styles="display:none"></div>
         <div id="header">
             <div class="container">
                 <div class="column span-12">
