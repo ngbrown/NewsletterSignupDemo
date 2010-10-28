@@ -48,12 +48,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\Subscription.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Subscription.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\UserAuthentication.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UserAuthentication.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\Subscription_Steps.cs" />
     <Compile Include="Steps\UserAuth_Steps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +69,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Features\Subscription.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Subscription.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\UserAuthentication.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UserAuthentication.feature.cs</LastGenOutput>
