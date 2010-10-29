@@ -16,22 +16,24 @@
     using NUnit.Framework;
 
     using Web.Controllers;
+    using Web.Infrastructure.Reporting;
     using Web.Infrastructure.Storage;
     using Web.Model;
 
     [Binding]
     public class Subscription_Steps
     {
-        private SessionMock sessionMock;
         private Mock<IDataStorage> dataStorageMock;
+        private SessionMock sessionMock;
+
+        private Mock<IReporting> reportingMock;
+        private SessionMock reportingSessionMock;
 
         [Given(@"a subscription does exist with a name of ""(.*), (.*)"" and an e-mail of ""(.*)""")]
         public void GivenASubscriptionDoesExist(string lastName, string firstName, string email)
         {
-            this.dataStorageMock = new Mock<IDataStorage>();
-            this.sessionMock = new SessionMock();
+            this.SetupSessions();
 
-            this.dataStorageMock.Setup(x => x.NewSession()).Returns(() => this.sessionMock);
             this.sessionMock.Add(new Subscription()
                 {
                     LastName = lastName, 
@@ -40,13 +42,23 @@
                 });
         }
 
-        [Given(@"a subscription does not exist with an e-mail of ""(.*)""")]
-        public void GivenASubscriptionDoesNotExist(string email)
+        private void SetupSessions()
         {
             this.dataStorageMock = new Mock<IDataStorage>();
             this.sessionMock = new SessionMock();
-
             this.dataStorageMock.Setup(x => x.NewSession()).Returns(() => this.sessionMock);
+
+            this.reportingMock = new Mock<IReporting>();
+            this.reportingSessionMock = new SessionMock();
+
+            this.reportingMock.Setup(x => x.NewSession()).Returns(() => this.reportingSessionMock);
+        }
+
+        [Given(@"a subscription does not exist with an e-mail of ""(.*)""")]
+        public void GivenASubscriptionDoesNotExist(string email)
+        {
+            this.SetupSessions();
+            this.sessionMock.Delete<Subscription>(x => x.EMail.Equals(email, StringComparison.InvariantCultureIgnoreCase));
         }
 
         [When(@"a user with the name ""(.*), (.*)"" and e-mail ""(.*)"" subscribes")]
@@ -60,7 +72,7 @@
                 };
 
 
-            var controller = new SubscriptionController(this.dataStorageMock.Object)
+            var controller = new SubscriptionController(this.dataStorageMock.Object, this.reportingMock.Object)
                 {
                     ControllerContext = MvcMockHelpers.GetControllerContextMock("POST")
                 };
@@ -74,7 +86,7 @@
         [When(@"a user with the name ""(.*), (.*)"" and e-mail ""(.*)"" un-subscribes")]
         public void WhenAUserUnSubscribes(string lastName, string firstName, string email)
         {
-            var controller = new SubscriptionController(this.dataStorageMock.Object)
+            var controller = new SubscriptionController(this.dataStorageMock.Object, this.reportingMock.Object)
             {
                 ControllerContext = MvcMockHelpers.GetControllerContextMock("POST")
             };

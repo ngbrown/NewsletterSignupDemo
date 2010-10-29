@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{ECCE34C7-3772-4686-86EA-7C3E66AA3D50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Tests", "Web.Tests\Web.Tests.csproj", "{2DA9B540-1D17-4B23-92E6-C7A7C2677435}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks", "Tasks\Tasks.csproj", "{5052803C-4367-430C-94F9-32BDE7E4E860}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Specs", "Specs\Specs.csproj", "{2711F418-5C9E-428F-B903-3FD92E2D1E18}"
@@ -29,16 +27,6 @@ Global
 		{ECCE34C7-3772-4686-86EA-7C3E66AA3D50}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{ECCE34C7-3772-4686-86EA-7C3E66AA3D50}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{ECCE34C7-3772-4686-86EA-7C3E66AA3D50}.Release|x86.ActiveCfg = Release|Any CPU
-		{2DA9B540-1D17-4B23-92E6-C7A7C2677435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DA9B540-1D17-4B23-92E6-C7A7C2677435}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DA9B540-1D17-4B23-92E6-C7A7C2677435}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2DA9B540-1D17-4B23-92E6-C7A7C2677435}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{2DA9B540-1D17-4B23-92E6-C7A7C2677435}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2DA9B540-1D17-4B23-92E6-C7A7C2677435}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DA9B540-1D17-4B23-92E6-C7A7C2677435}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2DA9B540-1D17-4B23-92E6-C7A7C2677435}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{2DA9B540-1D17-4B23-92E6-C7A7C2677435}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{2DA9B540-1D17-4B23-92E6-C7A7C2677435}.Release|x86.ActiveCfg = Release|Any CPU
 		{5052803C-4367-430C-94F9-32BDE7E4E860}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{5052803C-4367-430C-94F9-32BDE7E4E860}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{5052803C-4367-430C-94F9-32BDE7E4E860}.Debug|Mixed Platforms.Build.0 = Debug|x86

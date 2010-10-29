@@ -40,7 +40,9 @@
             </div>
             
             <p>
-                <input type="submit" value="Create" />
+                <button type="submit" class="button positive">
+                    <img src="/Public/css/blueprint/plugins/buttons/icons/tick.png" alt=""/>Create
+                </button>
             </p>
         </fieldset>
 

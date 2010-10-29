@@ -128,6 +128,10 @@
     <Compile Include="Reporting\UserActivity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ASPNETDB.MDF" />
+    <Content Include="App_Data\aspnetdb_log.ldf">
+      <DependentUpon>ASPNETDB.MDF</DependentUpon>
+    </Content>
     <Content Include="App_Data\Reporting.mdf" />
     <Content Include="App_Data\Reporting_log.ldf">
       <DependentUpon>Reporting.mdf</DependentUpon>

@@ -6,6 +6,7 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using Infrastructure.Reporting;
     using Infrastructure.Storage;
 
     using Model;
@@ -14,10 +15,17 @@
     {
         private const int PageSize = 20;
         private readonly IDataStorage dataStorage;
+        private readonly IReporting reporting;
+        private readonly UserActivityLogger userActivityLogger;
 
-        public SubscriptionController(IDataStorage dataStorage)
+        public SubscriptionController(
+            IDataStorage dataStorage,
+            IReporting reporting)
         {
             this.dataStorage = dataStorage;
+            this.reporting = reporting;
+
+            this.userActivityLogger = new UserActivityLogger(this.reporting);
         }
 
         //
@@ -42,7 +50,6 @@
         //
         // GET: /Subscription/Create
 
-        //[Authorize(Roles="Administrator")]
         public ActionResult Create()
         {
             var item = new Subscription();
@@ -54,7 +61,6 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //[Authorize(Roles="Administrator")]
         public ActionResult Create(FormCollection collection)
         {
             var item = new Subscription();
@@ -76,6 +82,9 @@
 
                         session.Add(item);
                         session.CommitChanges();
+
+                        this.userActivityLogger.LogIt("webuser", "Subscription Added: " + item);
+
                         this.FlashInfo("Subscription saved...");
                         return RedirectToAction("Index", "Home");
                     }
@@ -124,6 +133,9 @@
 
                     session.Delete(item);
                     session.CommitChanges();
+
+                    this.userActivityLogger.LogIt("webuser", "Subscription Removed: " + item);
+
                     this.FlashInfo("Subscription removed ...");
                     return RedirectToAction("Index", "Home");
                 }

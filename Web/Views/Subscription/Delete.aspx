@@ -24,7 +24,9 @@
             </div>
             
             <p>
-                <input type="submit" value="Delete" />
+                <button type="submit">
+                    <img src="/Public/css/blueprint/plugins/buttons/icons/cross.png" alt=""/>Delete
+                </button>
             </p>
         </fieldset>
 
