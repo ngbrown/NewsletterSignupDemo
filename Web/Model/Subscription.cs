@@ -14,9 +14,9 @@ namespace Web.Model
         {
             int result = 1;
 
-            result = (result * 397) ^ (this.EMail.GetHashCode());
-            result = (result * 397) ^ (this.FirstName.GetHashCode());
-            result = (result * 397) ^ (this.LastName.GetHashCode());
+            result = (result * 397) ^ (this.EMail != null ? this.EMail.GetHashCode() : 0);
+            result = (result * 397) ^ (this.FirstName != null ? this.FirstName.GetHashCode() : 0);
+            result = (result * 397) ^ (this.LastName != null ? this.LastName.GetHashCode() : 0);
 
             return result;
         }

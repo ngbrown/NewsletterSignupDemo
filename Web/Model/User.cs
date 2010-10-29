@@ -12,7 +12,7 @@ namespace Web.Model
         {
             int result = 1;
 
-            result = (result * 397) ^ (this.UserName.GetHashCode());
+            result = (result * 397) ^ (this.UserName != null ? this.UserName.GetHashCode() : 0);
 
             return result;
         }

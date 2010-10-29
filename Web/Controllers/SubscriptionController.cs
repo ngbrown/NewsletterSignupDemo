@@ -40,18 +40,6 @@
         }
 
         //
-        // GET: /Subscription/Details/john@smith.com
-
-        public ActionResult Details(string email)
-        {
-            using (var session = this.dataStorage.NewSession())
-            {
-                var item = session.Single<Subscription>(x=>x.EMail == email);
-                return View(item);
-            }
-        }
-
-        //
         // GET: /Subscription/Create
 
         //[Authorize(Roles="Administrator")]
@@ -71,7 +59,7 @@
         {
             var item = new Subscription();
             //please don't omit this...
-            var whiteList = new string[] { "FirstName", "LastName", "EMail" };
+            var whiteList = new[] { "FirstName", "LastName", "EMail" };
             this.UpdateModel(item, whiteList, collection.ToValueProvider());
 
             if (ModelState.IsValid)
@@ -86,7 +74,7 @@
                             return this.View();
                         }
 
-                        session.Add<Subscription>(item);
+                        session.Add(item);
                         session.CommitChanges();
                         this.FlashInfo("Subscription saved...");
                         return RedirectToAction("Index", "Home");
@@ -101,63 +89,18 @@
 
             return View(item);
         }
-        
-        //
-        // GET: /Subscription/Edit/5
- 
-        //[Authorize(Roles="Administrator")]
-        public ActionResult Edit(string email)
-        {
-            using (var session = this.dataStorage.NewSession())
-            {
-                var item = session.Single<Subscription>(x=>x.EMail == email);
-                return View(item);
-            }
-        }
-
-        //
-        // POST: /Subscription/Edit/5
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        //[Authorize(Roles="Administrator")]
-        public ActionResult Edit(string email, FormCollection collection)
-        {
-            using (var session = this.dataStorage.NewSession())
-            {
-                var item = session.Single<Subscription>(x=>x.EMail == email);
-                //please don't omit this...
-                var whiteList = new string[] { "field1", "field2" };
-                UpdateModel(item, whiteList, collection.ToValueProvider());
-
-                if (ModelState.IsValid)
-                {
-                    try
-                    {
-                        session.Add<Subscription>(item);
-                        session.CommitChanges();
-                        this.FlashInfo("Subscription saved...");
-                        return RedirectToAction("Index");
-                    }
-                    catch
-                    {
-                        this.FlashError("There was an error saving this record");
-                        return View();
-                    }
-                }
-
-                return View(item);
-            }
-        }
 
         //
         // GET: /Subscription/Delete
-        public ActionResult Delete()
+        public ActionResult Delete(string email)
         {
-            var item = new Subscription();
+            var item = new Subscription
+                {
+                    EMail = email
+                };
+
             return View(item);
         }
-
 
         //
         // POST: /Subscription/Delete/5
@@ -179,7 +122,7 @@
                         return this.View();
                     }
 
-                    session.Delete<Subscription>(item);
+                    session.Delete(item);
                     session.CommitChanges();
                     this.FlashInfo("Subscription removed ...");
                     return RedirectToAction("Index", "Home");
