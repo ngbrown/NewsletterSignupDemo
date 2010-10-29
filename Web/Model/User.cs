@@ -4,9 +4,9 @@ namespace Web.Model
 
     public class User
     {
-        public Guid Id { get; set; }
+        public virtual Guid Id { get; set; }
 
-        public string UserName { get; set; }
+        public virtual string UserName { get; set; }
 
         public override int GetHashCode()
         {

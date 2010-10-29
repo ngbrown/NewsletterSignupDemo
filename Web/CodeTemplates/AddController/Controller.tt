@@ -76,8 +76,8 @@ if(mvcHost.AddActionMethods) {
         {
             var item = new <#= mvcHost.ControllerRootName #>();
             //please don't omit this...
-            var whiteList=new string[]{"field1","field2"};
-            UpdateModel(item,whiteList,collection.ToValueProvider());
+            var whiteList = new string[] { "field1", "field2" };
+            this.UpdateModel(item, whiteList, collection.ToValueProvider());
 
             if (ModelState.IsValid)
             {
@@ -126,8 +126,8 @@ if(mvcHost.AddActionMethods) {
             {
                 var item = session.Single<<#= mvcHost.ControllerRootName #>>(x=>x.Id == id);
                 //please don't omit this...
-                var whiteList=new string[]{"field1","field2"};
-                UpdateModel(item,whiteList,collection.ToValueProvider());
+                var whiteList = new string[] { "field1", "field2" };
+                this.UpdateModel(item, whiteList, collection.ToValueProvider());
 
                 if (ModelState.IsValid)
                 {

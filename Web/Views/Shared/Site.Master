@@ -20,7 +20,7 @@
         <div id="header">
             <div class="container">
                 <div class="column span-12">
-                    <h1>My MVC Application</h1>
+                    <h1>Newsletter Demo</h1>
                 </div>
               
                 <div class="column span-12 last">

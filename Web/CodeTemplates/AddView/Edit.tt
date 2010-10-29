@@ -70,6 +70,7 @@ if(!String.IsNullOrEmpty(mvcViewDataTypeGenericString)) {
 #>
 <%= Html.DatePickerEnable() %>
     <% using (Html.BeginForm()) {%>
+        <%<#= nugget #> Html.AntiForgeryToken() %>
         <%<#= nugget #> Html.ValidationSummary(true) %>
         
         <fieldset>

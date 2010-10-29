@@ -55,10 +55,10 @@ namespace Specs.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("New subscription")]
-        public virtual void NewSubscription()
+        [NUnit.Framework.DescriptionAttribute("1. New subscription")]
+        public virtual void _1_NewSubscription()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("New subscription", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. New subscription", ((string[])(null)));
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -68,16 +68,16 @@ this.ScenarioSetup(scenarioInfo);
 #line 10
  testRunner.Then("a success message is displayed");
 #line 11
- testRunner.And("the e-mail \"jonny@boy.com\" is not in the persistent store");
+ testRunner.And("the e-mail \"jonny@boy.com\" is in the persistent store");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Already existing subscription")]
-        public virtual void AlreadyExistingSubscription()
+        [NUnit.Framework.DescriptionAttribute("2. Already existing subscription")]
+        public virtual void _2_AlreadyExistingSubscription()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Already existing subscription", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2. Already existing subscription", ((string[])(null)));
 #line 13
 this.ScenarioSetup(scenarioInfo);
 #line 14
@@ -94,10 +94,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Removing existing subscription")]
-        public virtual void RemovingExistingSubscription()
+        [NUnit.Framework.DescriptionAttribute("3. Removing existing subscription")]
+        public virtual void _3_RemovingExistingSubscription()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Removing existing subscription", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3. Removing existing subscription", ((string[])(null)));
 #line 19
 this.ScenarioSetup(scenarioInfo);
 #line 20
@@ -114,10 +114,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Attempting to remove non-existing subscription")]
-        public virtual void AttemptingToRemoveNon_ExistingSubscription()
+        [NUnit.Framework.DescriptionAttribute("4. Attempting to remove non-existing subscription")]
+        public virtual void _4_AttemptingToRemoveNon_ExistingSubscription()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Attempting to remove non-existing subscription", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4. Attempting to remove non-existing subscription", ((string[])(null)));
 #line 25
 this.ScenarioSetup(scenarioInfo);
 #line 26

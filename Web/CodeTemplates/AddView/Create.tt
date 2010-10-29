@@ -69,6 +69,7 @@ if(!String.IsNullOrEmpty(mvcViewDataTypeGenericString)) {
     FilterProperties(mvcHost.ViewDataType, properties);
 #>
     <% using (Html.BeginForm()) {%>
+        <%<#= nugget #> Html.AntiForgeryToken() %>
         <%<#= nugget #> Html.ValidationSummary(true) %>
 
         <fieldset>

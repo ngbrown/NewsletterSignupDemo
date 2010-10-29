@@ -22,8 +22,7 @@ namespace Web.Tests.Controllers
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            ViewDataDictionary viewData = result.ViewData;
-            Assert.AreEqual("Welcome to ASP.NET MVC!", viewData["Message"]);
+            Assert.That(result, Is.Not.Null);
         }
 
         [Test]
@@ -36,7 +35,7 @@ namespace Web.Tests.Controllers
             ViewResult result = controller.About() as ViewResult;
 
             // Assert
-            Assert.IsNotNull(result);
+            Assert.That(result, Is.Not.Null);
         }
     }
 }
