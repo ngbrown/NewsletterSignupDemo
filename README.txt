@@ -7,17 +7,17 @@ It was used as a greenfield platform, giving me the opportunity to develop a sol
 
 Building source
 ===
-To build, run build.cmd.
+To build, run build.cmd or load solution into Visual Studio 2010 and build from there.
 
 Running
 ==
-It requires a Raven DB instance for data storage.  Run the included exe: .\RavinServer\Raven.Server.exe.  This will launch a service at port 8080.
+It requires a Raven DB instance for data storage.  Run the included exe: .\RavenServer\Raven.Server.exe.  This will launch a service at port 8080.
 
 SQL Express is required to be installed to support the reporting of user activity.
 
-The web application can be launched through Visual Studio's embedded web server (Ctl-F5) or if IIS Express is installed, use the included "LaunchIISExpress.cmd".  The application will launch at http://localhost:8081/.
+The web application can be launched through Visual Studio's embedded web server (Ctl-F5).
 
-To view the current subscriptions to the newsletter, go to http://localhost:8081/Subscription.
+Or if IIS Express is installed, use the included "LaunchIISExpress.cmd", then the application will launch at http://localhost:8081/.  To view the current subscriptions to the newsletter, go to http://localhost:8081/Subscription.
 
 Future expandability
 ===
