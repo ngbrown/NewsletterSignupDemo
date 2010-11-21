@@ -15,5 +15,9 @@ _ReSharper.*/
 Logs/
 RavenServer/Data/
 
+StepDefinitionReport.html
+TestResult.html
+TestResult.xml
+
 # switch to regexp syntax.
 syntax: regexp
