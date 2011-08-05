@@ -19,5 +19,8 @@ StepDefinitionReport.html
 TestResult.html
 TestResult.xml
 
+/build.log
+
 # switch to regexp syntax.
 syntax: regexp
+
