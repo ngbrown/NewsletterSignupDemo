@@ -11,7 +11,7 @@ To build, run build.cmd or load solution into Visual Studio 2010 and build from 
 
 Running
 ==
-It requires a Raven DB instance for data storage.  Run the included exe: .\RavenServer\Raven.Server.exe.  This will launch a service at port 8080.
+It requires a Raven DB instance for data storage.  Run the included "Launch RavenDB.cmd".  This will launch a service at port 8080 and open the database manager.
 
 SQL Express is required to be installed to support the reporting of user activity.
 
